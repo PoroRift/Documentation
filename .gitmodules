@@ -4,3 +4,6 @@
 [submodule "Knowledge-base"]
 	path = Knowledge-base
 	url = https://github.com/RichCherng/Knowledge-base
+[submodule "React-Tutorial"]
+	path = React-Tutorial
+	url = https://github.com/RichCherng/React-Tutorial
