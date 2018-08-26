@@ -1,14 +1,16 @@
 # Documentation
 Style Guide, Wireframes, and Documentation.
 
-## Tools
+Tools
+---
 - GitHub Projects: Boards and issues to track and communicate progress.
 - [**Google Hangouts:**](https://hangouts.google.com/) For all (remote) meetings.
 - [**Facebook Messenger:**](https://www.messenger.com/t/rich.cherngchaosil) Communications, general/meeting reminders.
 - ~~[**Meetings Calender:**](https://calendar.google.com/calendar?cid=ajZnbzF2bHZ1bGpmN2t0N24xOG9zZmk1NWNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)~~ _Depricated due to of lack of adaptation in team._
 
 
-## Roles
+Roles
+---
 ### Product
 **Product Owner - Jimmy**
 > Duties of the Product Owner:
@@ -44,8 +46,9 @@ _All technical roles/software engineering will re require to abide by [these sty
 
 **Software Engineer - Eric**
 
-Interviewing
 ---
+
+### Interviewing
 Design Consultant - Jaylen 
 
 
