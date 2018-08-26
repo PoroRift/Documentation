@@ -14,12 +14,14 @@ Product
 > - PO manages and creates the product backlog for implementation, which is nothing but the prioritized backlog of user stories.
 > - PO defines user stories to the development team.
 > - Spending some time to prioritize the user stories with few team members.
+> - _Manage stakeholders_
 
-Stakeholder #1 - Christopher
+**Stakeholder #1 - Christopher**
+> Being critical of product.
 
 Technical/Process
 ---
-**Scrum Master** - Cherie
+**Scrum Master - Cherie**
 > Duties of Scrum Master:
 > - SM facilitates team for better vision and always tries to improve the efficiency of the teams.
 > - SM manages Scrum processes in Agile methodology.
@@ -29,9 +31,10 @@ Technical/Process
 > - Conducting retrospective meetings.
 > - SM organizes and facilitates the sprint planning meeting.
 
-Tech Lead - Rich
+**Tech Lead - Rich**
+> Manages Software Engineers _(Since we don't have a full structure for this)_
 
-Software Engineer - Eric
+**Software Engineer - Eric**
 
 Interviewing
 ---
