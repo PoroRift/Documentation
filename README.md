@@ -9,7 +9,7 @@ Style Guide, Wireframes, and Documentation.
 
 
 ## Roles
-#### Product
+### Product
 ---
 **Product Owner - Jimmy**
 > Duties of the Product Owner:
@@ -25,7 +25,7 @@ Style Guide, Wireframes, and Documentation.
 **Stakeholder #1 - Christopher**
 > Being critical of product.
 
-#### Technical/Process
+### Technical/Process
 ---
 _All technical roles/software engineering will re require to abide by [these style rules](https://github.com/airbnb/javascript/tree/master/react), therefore must read it before starting work._
 
