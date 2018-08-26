@@ -1,6 +1,13 @@
 # Documentation
 Style Guide, Wireframes, and Documentation.
 
+## Tools
+- GitHub Projects: Boards and issues to track and communicate progress.
+- [**Google Hangouts:**](https://hangouts.google.com/) For all (remote) meetings.
+- [**Facebook Messenger:**](https://www.messenger.com/t/rich.cherngchaosil) Communications, general/meeting reminders.
+- ~~[**Meetings Calender:**](https://calendar.google.com/calendar?cid=ajZnbzF2bHZ1bGpmN2t0N24xOG9zZmk1NWNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)~~ _Depricated due to of lack of adaptation in team._
+
+
 ## Roles
 
 Product
@@ -41,7 +48,4 @@ Interviewing
 Design Consultant - Jaylen 
 
 
-## Meetings Calender
-
-https://calendar.google.com/calendar?cid=ajZnbzF2bHZ1bGpmN2t0N24xOG9zZmk1NWNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
 
