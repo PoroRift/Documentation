@@ -28,6 +28,7 @@ Product
 
 Technical/Process
 ---
+_All technical roles/software engineering will re require to abide by [these style rules](https://github.com/airbnb/javascript/tree/master/react), therefore must read it before starting work._
 **Scrum Master - Cherie**
 > Duties of Scrum Master:
 > - SM facilitates team for better vision and always tries to improve the efficiency of the teams.
