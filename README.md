@@ -23,9 +23,6 @@ Roles
 > - Spending some time to prioritize the user stories with few team members.
 > - _Manage stakeholders_
 
-**Stakeholder #1 - Christopher**
-> Being critical of product.
-
 ---
 
 ### Technical/Process
@@ -45,6 +42,8 @@ _All technical roles/software engineering will re require to abide by [these sty
 > Manages Software Engineers _(Since we don't have a full structure for this)_
 
 **Design Consultant - Jaylen**
+
+**Frontend Developer - Christopher**
 
 **Software Engineer - Eric**
 
