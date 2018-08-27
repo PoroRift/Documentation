@@ -44,12 +44,10 @@ _All technical roles/software engineering will re require to abide by [these sty
 **Tech Lead - Rich**
 > Manages Software Engineers _(Since we don't have a full structure for this)_
 
+**Design Consultant - Jaylen**
+
 **Software Engineer - Eric**
 
 ---
-
-### Interviewing
-Design Consultant - Jaylen 
-
 
 
