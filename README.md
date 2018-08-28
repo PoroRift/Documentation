@@ -56,3 +56,5 @@ Working with GitHub
 ---
 
 Sprint Planning will occur on the main PORORIFT project board and will waterfall down to respective projects (client/backend).
+
+![horse](https://cdn-images-1.medium.com/max/800/0*oxy0rmCY12MH-J2r)
