@@ -50,3 +50,7 @@ _All technical roles/software engineering will re require to abide by [these sty
 ---
 
 
+Working with GitHub
+---
+
+Sprint Planning will occur on the main PORORIFT project board and will waterfall down to respective projects (client/backend).
