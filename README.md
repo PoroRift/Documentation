@@ -24,6 +24,7 @@ Roles
 > - _Manage stakeholders_
 
 **Stakeholder 1 - Tyler**
+
 ---
 
 ### Technical/Process
