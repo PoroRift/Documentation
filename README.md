@@ -23,8 +23,8 @@ Roles
 > - Spending some time to prioritize the user stories with few team members.
 > - _Manage stakeholders_
 
-**Stakeholder 1 - Tyler**
-
+**Stakeholder #1 - Tyler**
+> Has a say in the project, where it is, where it should be.
 ---
 
 ### Technical/Process
