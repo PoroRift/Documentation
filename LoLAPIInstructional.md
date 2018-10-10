@@ -5,7 +5,7 @@ These instructions are technically optional to test LoL API but better experienc
 
 **1. Install Postman if you don't have it already:** Instructions to install and how to get started and stuff is [here](https://www.getpostman.com/docs/v6/postman/launching_postman/installation_and_updates) or if you're more of a TLDR person just click [here.](https://www.getpostman.com/apps)
 
-**2. Download Postman Collection from our beautiful repository:** 
+**2. Download Postman Collection from our beautiful repository, it is in [ProroRift/docs-about](https://github.com/PoroRift/docs-about).** 
 
 **3. Open up Postman, exit out of that introductory popup, and click on `File` > `Import...`.**
 
@@ -13,7 +13,8 @@ These instructions are technically optional to test LoL API but better experienc
 
 **5. Click `Collections` tab on the left next to the `History` tab.**
 
-**6. Put down the API key in Environment Variable:** Open up the Collection by clicking the small left arrow. There should be a few requests (or just one) click on one you're interested in and it should open up into the main boxes. Click on `No Environment` dropdown above the blue `Send` button and select `PORORIFT`, click the eye icon next to that dropdown and click on the `Edit` button adjacent to `PORORIFT`. You should see a checked row labeled `API_KEY`. Under `CURRENT VALUE` grab the API key from our chat (or generate your own [here (requires LoL account)](https://developer.riotgames.com/)) and paste it into that column. Hit `Update`.
+~~**6. Put down the API key in Environment Variable:** Open up the Collection by clicking the small left arrow. There should be a few requests (or just one) click on one you're interested in and it should open up into the main boxes. Click on `No Environment` dropdown above the blue `Send` button and select `PORORIFT`, click the eye icon next to that dropdown and click on the `Edit` button adjacent to `PORORIFT`. You should see a checked row labeled `API_KEY`. Under `CURRENT VALUE` grab the API key from our chat (or generate your own [here (requires LoL account)](https://developer.riotgames.com/)) and paste it into that column. Hit `Update`. You might also need to add other variables to this place depending on the variables the request will use.~~
+**6. WE CAN SHARE ENVIRONMENTS!** Create an account with Postman, sign in and let me know your email. I will share the key/environment with you and you will not need to worry about this step. You may still need to go to the dropdown to change to this environment however.
 
 > **NOTE:** API key expires every 24-hours so if it's expired request for me to generate a new one for you or make an account to test your own and place it into the same place mentioned above.
 
