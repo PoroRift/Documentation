@@ -5,7 +5,7 @@ These instructions are technically optional to test LoL API but better experienc
 
 **1. Install Postman if you don't have it already:** Instructions to install and how to get started and stuff is [here](https://www.getpostman.com/docs/v6/postman/launching_postman/installation_and_updates) or if you're more of a TLDR person just click [here.](https://www.getpostman.com/apps)
 
-**2. Download Postman Collection from our beautiful repository, it is in [ProroRift/docs-about](https://github.com/PoroRift/docs-about).** 
+**2. Download Postman Collection _(named `PoroSnaxRecipies.postman_collection`)_ from our beautiful repository, it is in [ProroRift/docs-about](https://github.com/PoroRift/docs-about).** 
 
 **3. Open up Postman, exit out of that introductory popup, and click on `File` > `Import...`.**
 
