@@ -7,6 +7,7 @@ Tools
 - [**Google Hangouts:**](https://hangouts.google.com/) For all (remote) meetings.
 - [**Facebook Messenger:**](https://www.messenger.com/t/rich.cherngchaosil) Communications, general/meeting reminders.
 - ~~[**Meetings Calender:**](https://calendar.google.com/calendar?cid=ajZnbzF2bHZ1bGpmN2t0N24xOG9zZmk1NWNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)~~ _Depricated due to of lack of adaptation in team._
+- [**Riot Games API:**](https://developer.riotgames.com/api-methods/) Documentation of the API we will be using.
 
 
 Roles
