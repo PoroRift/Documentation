@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "09f2d475-1a80-45b6-8fea-bc0277189425",
+		"name": "PORORIFT LoL API Playground",
+		"description": "A list of calls that can be potentially used for our the best application to be birth.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Summoner By Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/{{SummonerName}}?api_key=?API_KEY={{API_KEY}}",
+					"protocol": "https",
+					"host": [
+						"na1",
+						"api",
+						"riotgames",
+						"com"
+					],
+					"path": [
+						"lol",
+						"summoner",
+						"v3",
+						"summoners",
+						"by-name",
+						"{{SummonerName}}"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "?API_KEY={{API_KEY}}"
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f7a9f5e2-20bc-4495-8043-cc130e69b621",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "599124ae-2b3b-45cd-8473-dd00236a12de",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "f8847668-4c10-4c41-b2eb-84bc30b8bc4b",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}
