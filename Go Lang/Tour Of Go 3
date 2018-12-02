@@ -1,0 +1,259 @@
+Pointers
+- pointer holds the memory address of a value 
+- type *T is a pointer to a T value
+- pointer's zero value is nil 
+- the & operator generates a pointer to its operand 
+- the * operator denotes the pointer's underlying value 
+    
+    ex:
+        package main 
+        
+        import "fmt"
+
+        func main() {
+            i, j := 42, 2701
+
+            p := &i // point to i 
+            fmt.Println(*p) // read i through the pointer 
+            *p = 21 // set i through the pointer 
+            fmt.Println(i) // see new value of i 
+
+            p = &j // point to j
+            *p = *p / 37 // divide j through the pointer 
+            fmt.Println(j) // see the new value of j
+        }
+
+Struct 
+- collection of fields 
+- fields are accessed using the det 
+
+
+    ex:
+        package main 
+        
+        import "fmt"
+
+        type Vertex struct {
+            X int
+            Y int
+        }
+
+        func main() {
+            v := Vertex{1, 2}
+            v.X = 4
+            fmt.Println(v.X)
+        }
+
+Pointers To Struct 
+- Struct fields can be accessed through a struct pointer 
+- To access the field X of a struct when we have the struct pointer p we could write (*p).X
+    - this is kinda cumbersome so the language allows doing p.X without the explicit dereference 
+
+    ex: 
+        package main 
+
+        import "fmt"
+        
+        type Vertex struct {
+            X int
+            Y int
+        }
+
+        func main() {
+            v := Vertex{1, 2}
+            p := &v
+            p.X = 1e9
+        }
+
+
+Struct Literals 
+- you can denote struct values by using the Name: syntax 
+ex:
+    package main 
+
+    import "fmt"
+
+    type Vertex struct {
+        X, Y int 
+    }
+
+    var (
+        v1 = Vertex{1, 2} // X = 1, Y = 2
+        v2 = Vertex{X: 1} // X = 1, Y = 0
+        v3 = Vertex{}     // X = 0, Y = 0
+        p = &Vertex{1, 2} // p is typed *Vertex
+    )
+
+    func main () {
+        fmt.Println(v1, v2, v3, *p)
+    }
+
+Arrays
+- arrays are declared through the [n]T
+    - "var a [10]int" decalres an array of ten ints 
+    - var a [4]int // is {0, 0, 0, 0}
+    - var a [4]int{1, 2, 3, 4} 
+    - var a[0] = 1
+    - var a[2] = 4
+
+Slices
+- slice is a dynamically-sized, flexible view into the elements of an array 
+- slice are more common than arrays 
+- a slyce is denoted as a[low : high]
+- like references to an array, does not store any data 
+- changing elements of a slice modifies the corresponding elements of its underlying array 
+- slices that share the same underlying array will see those changes 
+- CAN CONTAIN SLICES 
+ex:
+    package main 
+
+    import "fmt"
+
+    func main() {
+        primes := [6]int{2, 3, 5, 7, 11, 13}
+
+        var s []int = primes[1:4]
+        fmt.Println(s)
+
+        s[0] = 1
+        primes[0] == 1 // true 
+
+        sliceOfSlice := [][]String{
+            []String{"hello", "world"},
+            []String{"hello", "world2"}
+        }
+    }
+
+Slice Literals
+- doing a [3]bool{true, true, true} vs a []bool{true, true, true} will yield the same result
+  but the latter will make an array then a slice that refrences it 
+
+  ex:
+    package main 
+
+    import "fmt"
+
+    func main() {
+        s := []struct{
+            a int
+            b int
+        }{
+            {2, 3},
+            {3, 4},
+            {4, 5}
+        }
+    }
+
+Slice Defaults 
+- defaults of the high and low boud is 
+    low = 0
+    high = length of array
+ex:
+    a := [4]int{1,2,3,4}
+    a[:] == {1,2,3,4}
+    a[2:] == {3,4}
+    a[:3] == {1,2,3}
+
+Slice Length and Capacity 
+- slices has a length and capactiy 
+    length = number of element in a slice 
+    capacity = number of element in the underlying array, starting from first element in slice 
+
+    ex:
+        a := [10]int{1,2,3,4,5,6,7,8,9,0}
+        s := [:7] // len(s) == 7, cap(s) == 10
+        s := [3:] // len(s) == 7, cap(s) == 7
+- a slice that has no value is a nil, which has a length and capactiy of 0
+
+Make 
+- make is a built-in function to create dynamically-sized array 
+- make will allocate zeroed array and returns a slice that refers to that array 
+- syntax is make(array, length, capacity?), the capacity is optional 
+ex:
+    b := make([]int, 4, 5) // make {0, 0, 0, 0}, len(b) == 4, cap(b) == 5
+
+
+Appending 
+- go has a built-in function that allows you to append to a slice 
+ex:
+    s := []int{1,2,3,4}
+    s = append(s, 5) // s == {1,2,3,4,5}
+
+
+Range 
+- basically a for each loop 
+- returns the index and the element of the index in the map or slice 
+- add a _ if you want to skip index: for _, val := range slice
+- drop the ', val' if you don't want the value: for i := range slice 
+ex:
+    pacakge main 
+
+    import "fmt"
+
+    func main() {
+        pow := []int{1,2,4,8,16,32}
+        for i, v := range pow {
+            i // index 
+            v // element of the index
+        }
+    }
+
+Maps 
+- map maps keys to values 
+- zero value of map is nil, which has no keys 
+- make function returns a map of the given type 
+    ex: 
+        package main 
+
+        var m map[string]int
+
+        func main() {
+            m = make(map[string]int)
+            m["Bell Labs"] = 5
+            m["Dev"] = 4
+        }
+
+- maps literals are like struct literals, but keys are required 
+- if top-level type is just a type name then you can omit it from elements of the literals
+    ex:
+        var m map[string]int{
+            "Bell Labs": 2,
+            "Google": -1
+        }
+- updateing an element in a map: m[key] = elem
+- retrieve an element in a map: elem = m[key]
+- delete an element: delete(m, key)
+- test that a key is present with two-value assignement: elem, ok = m[key]
+    - if key is in m then ok is true 
+    - if key is NOT in m then ok is false 
+    - if elem or ok have not been declared use ':=' instead of '='
+
+Function Values 
+- functions are values too 
+- they can be passed around just like other values 
+- function values may be used as function arguments and return values 
+ex: 
+    package main 
+
+    import(
+        "fmt"
+        "math"
+    )
+
+    func compute(fn func(float64, float64) float64) float64 {
+        return fn(3, 4)
+    }
+
+    func main() {
+        hypot := func(x, y float64) float64 {
+            return math.Sqrt(x*x + y*y)
+        }
+        fmt.Println(hypot(5, 12))
+
+        fmt.Println(compute(hypot))
+        fmt.Println(compute(math.Pow))
+    }
+
+Function Closures 
+- closures is a function value that references variables from outside its body 
+- function may access and assign to the referenced variables

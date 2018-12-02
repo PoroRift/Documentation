@@ -1,0 +1,117 @@
+Packages 
+- go programs is made up of Packages
+- Programs start running in package main
+- import packages into go program 
+- by convention package name is the same as the last element of the import path 
+    - "math/rand" imports 'package rand'
+    
+    ex:
+        package main 
+
+        import (
+            "fmt"
+            "math"
+        )
+
+        func main() {
+            fmt.Println("Now you have %g problems. \n", math.Sqrt(7))
+        }
+
+Imports 
+- how other packages are brought in 
+- seperation of imports can also be done too 
+    ex: 
+        import "fmt"
+        import "math"
+
+Exported names 
+- exported names begins with a capital letter 
+    ex: math.Pi, math.Sqrt 
+- any unexported name cannot be accessed from outside the package 
+
+Functions 
+- can take zero or more arguments 
+- type comes after the variable name 
+- if two or more consecutive named function param share a type, 
+  you can omit th etype from all but the last 
+
+    ex:
+        package main 
+
+        import "fmt"
+        
+        func add(x int, y int) int {
+            return x + y
+        }
+
+        func sub(x, y int) int {
+            return x - y 
+        }
+
+        func main() {
+            fmt.Println(add(2, 3))
+        }
+
+Multiple Returns 
+- a function can return multiple results 
+    ex:
+        package main 
+
+        import "fmt"
+
+        func swap (x, y string) (string, string) {
+            return y, x
+        }
+
+        func main() {
+            a, b := swap("hello", "world")
+            fmt.Println(a, b)
+        }
+
+Named Return Values 
+- you can name the return values in go 
+- names must be defined at the top of the function 
+- should be used to document meaning of return value 
+- return value without a statement returns the named return values 
+    - this is known as a "naked" return 
+    - ONLY use in short functions 
+
+Variables
+- variables are declared with the var keyword and the type at the end 
+    ex: var x int 
+- type can be omitted when an initializer is present
+- variables can also be declared with the ':=' symbol
+    - this method can only be used inside a function 
+        ex: k := x
+
+Basic Types 
+- go's basic type includes:
+    bool
+
+    string
+
+    int int8 int16 int32 int64
+    uint uint8 uint16 uint32 uint64 uintptr
+
+    byte <- alias for uint8
+
+    rune <- alias for int32 
+
+    float32 float64
+
+    complex64 complex128 
+- int and uint is 32 bits wide or 64 bits wide base on the system
+
+Zero Values 
+- zero values include: 
+    - 0 numeric 
+    - false boolean 
+    - "" string 
+
+Type Conversions 
+- types can be converted through T(x) 
+    ex: i := float64(x)
+
+Constants 
+- declared through the const keyword 
+- cannot be declared using ':=' shortcut 

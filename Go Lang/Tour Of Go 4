@@ -1,0 +1,336 @@
+Methods 
+- Go does not have classes, but you can define methods on types 
+- method is a function with a special receiver argument 
+- receiver apperas in its own argument list between the func keyword and method name 
+- you can declare methods on non-struct types 
+- NOTE : 
+    Can only declare a method with a receiver whose type is define in the same package as the method 
+    cannot declare a method with a receiver whose type is define in another package 
+ex:
+    package main 
+
+    import (
+        "fmt"
+        "math"
+    )
+
+    type Vertex struct {
+        x, y float64
+    }
+
+    func (v Vertex) Abs() float64{
+        return math.Sqrt(v.X*v.X + v.Y*v.Y)
+    }
+
+    func main() {
+        v := Vertex{3, 4}
+        fmt.Println(v.Abs())
+    }
+
+Pointer Receiver 
+- you can declare methods with pointer receivers 
+- method with pointer receivers can modify the value to wich the receiver points 
+- value receiver will cause the method to operate on a copy of the original value 
+- adding a pointer will cause the method to operate on the value itself. 
+ex:
+    package main 
+
+    import (
+        "fmt"
+        "math"
+    )
+
+    type Vertex struct {
+        X, Y float64
+    }
+
+    func (v Vertex) Abs() float64 {
+        return math.Sqrt(v.X*v.X + v.Y*v.Y)
+    }
+    
+    func (v *Vertex) Scale(f flaot64) {
+        v.X = v.X * f
+        v.Y = v.Y * f
+    }
+
+    func main() {
+        v := Vertex{3, 4}
+        v.Scale(10) // v.Abs == 50
+    }
+
+Choosing A Value or Pointer Receiver 
+- two reason to use a pointer receiver 
+    1) method can modify the value that its receiver points to 
+    2) avoid copying the value on each method call (useful if receiver is a large struct)
+- EITHER VALUES OR POINTERS DO NOT MIX 
+
+
+Interface 
+- defined as a set of method signatures 
+- interface type can hold any value that implements those methods 
+- type implemeents an interface by implementing its methods 
+- (interfaces are implemented implicitly)
+- implicit interfaces decouple the definition of an interface from its implementation
+  could appear in any package without prearrangement 
+ex: 
+    package main 
+
+    type I interface {
+        M()
+    }
+
+    type T struct {
+        S string 
+    }
+    
+    func (t T) M() {
+        fmt.Println(t.S)
+    }
+
+    func main() {
+        var i I = T{"hello"}
+        i.M() 
+    }
+
+Interface Values 
+- interface values can be thought as a tuple of (value, type) 
+- interface value holds a value of a specific underlying concrete type 
+- if interface value is nil, then method will be called with nil receiver 
+- interface value that holds a nil concrete value is itself non-nil
+- nil interface value holds neither vaslue nor concrete type 
+    - this results ina run-time error 
+ex: 
+    package main 
+    
+    import (
+        "fmt"
+        "math"
+    )
+
+    type I interface {
+        M()
+    }
+
+    type T struct {
+        S string
+    }
+
+    func (t *T) M() {
+        fmt.Println(t.S)
+    }
+
+    type F float64
+    func (f F) M() {
+        fmt.Println(f) 
+    }
+
+    func main() {
+        var i I 
+        i = &T{"Hello"}
+        describe(i) 
+        i.M()
+
+        i = F(math.Pi)
+        describe(i) 
+        i.M()
+    }
+
+    func describe(i I){
+        fmt.Printf("(%v, %T)\n", i, i)
+    }
+
+Empty Interface 
+- interface type that specifies zero methods 
+- may hold value of any type 
+- used by code that handles values of unknown type 
+ex:
+    package main 
+
+    import "fmt"
+
+    func main() {
+        var i interface{}
+        describe(i)
+
+        i := 42
+        describe(i)
+    }
+
+    func describe(i interface{}){
+        fmt.Printf("(%v, %T)\n", i, i)
+    }
+
+Type Assertions
+- type assertian provides access to an interface value's underlying concrete value 
+- type assertion can return 2 values: underlying value and boolean value 
+- use the boolean value to check for true if type assertion was correct or false if not 
+ex:
+    package main 
+
+    import "fmt" 
+
+    func main() {
+        var i interface{} = "hello"
+
+        s := i.(string)
+        fmt.Println(s)
+
+        s, ok := i.(string)
+        fmt.Println(s, ok) 
+    }
+
+
+Type Switch 
+- type switch is a construct that permits several type assertions in series 
+- type switch is like regualr switch but cases checks for type instead of value 
+ex:
+    package main 
+
+    import "fmt"
+
+    func do(i interface{}){
+        switch v := i.(type) {
+            case int: 
+                fmt.Println("int")
+            case string:
+                // do something
+            default:
+                // do something 
+        }
+    }
+
+    func main() {
+        do(21)
+        do("hello")
+        // ... and so on
+    }
+
+Stringers 
+- Stringer is an interface that comes with "fmt" package
+- allows you to overload how a struct or value is printed 
+ex:
+    package main 
+
+    import "fmt"
+
+    type Person struct {
+        Name string 
+        Age int
+    }
+
+    func (p Person) String() string {
+        return fmt.Sprintf("%v (%v years)", p.Name, p.Age)
+    }
+
+    func main() {
+        a := Person{"John Hendrixon", 24}
+        fmt.Println(a)
+    }
+
+Error
+- error type is a built-in interface to fmt.Stringer 
+ex:
+    package main 
+
+    import (
+        "fmt"
+    )
+
+    type NotFound string 
+
+    func (e NotFound) Error() string {
+        return fmt.Sprint(string(e))
+    }
+
+    func CheckStatus(status int) (int, error) {
+        if status == 404 {
+            return status, NotFound("Error 404 Not Found")
+        }
+        return status, nil
+    }
+
+    func main() {
+        fmt.Println(CheckStatus(200))
+        fmt.Println(CheckStatus(404))
+    }
+
+Reader
+- io package specifies the io.Reader interface, which represents the read end of a stream of data 
+- io.Reader interface has a Read method
+    - ex: func (T) Read(b []byte) (n int, err error)
+    - populates given byte slice with data and returns number of bytes populated and an error value 
+    - returns an io.EOF error when stream ends 
+
+rot13Reader Challenge
+- common pattern is an io.Reader that wraps another io.Reader, modifying the stream in some way 
+- rot13 is a cypher: https://en.wikipedia.org/wiki/ROT13
+ex:
+    package main 
+
+    import (
+        "io"
+        "os"
+        "strings"
+    )
+
+    type rot13Reader struct {
+        r io.Reader
+    }
+
+    func (r rot13Reader) Read(b []byte) (int, error) {
+        n, err := r.r.Read(b)
+        for i := 0; i < n; i++ {
+            if (b[i] >= 65 && b[i] <= 77) || (b[i] >= 97 && b[i] <= 109) {
+			    b[i] += 13
+            } else {
+                b[i] -= 13
+            }
+        }
+        return n, err
+    }
+
+    func main() {
+        s := strings.NewReader("Lbh penpxrq gur pbqr!")
+        r := rot13Reader{s}
+        io.Copy(os.Stdout, &r)
+    }
+
+Images
+- package image defines the Image interface
+    -ex: 
+        package image 
+
+        type Image interface {
+            ColorModel() color.Model 
+            Bounds() Rectangle 
+            At(x, y int) color.Color
+        }
+- making your own Image generator 
+ex: 
+    package main
+
+    import (
+        "golang.org/x/tour/pic"
+        "image/color"
+        "image"
+    )
+
+    type Image struct{}
+
+    func (i Image) ColorModel() color.Model {
+        return color.RGBAModel
+    }
+
+    func (i Image) Bounds() image.Rectangle {
+        min, max := image.Point{0,0}, image.Point{255,255}
+        return image.Rectangle{min, max}
+    }
+
+    func (i Image) At(x, y int) color.Color {
+        return color.RGBA{uint8((x+y)/2), uint8((x+y)/2), 255, 255}
+    }
+
+    func main() {
+        m := Image{}
+        pic.ShowImage(m)
+    }
